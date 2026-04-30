@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>For You ❤️</title>
+
   <style>
     body {
       text-align: center;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial;
       background: linear-gradient(to right, #ff9a9e, #fecfef);
       padding-top: 50px;
-      color: #333;
     }
 
     .box {
@@ -37,6 +37,7 @@
     .no {
       background-color: #dc3545;
       color: white;
+      position: relative;
     }
 
     button:hover {
@@ -51,6 +52,7 @@
 
 <body>
 
+<!-- 🔐 LOCK SCREEN -->
 <div id="lockScreen" class="box">
   <h2>Hey beautiful ❤️</h2>
   <p>Enter our secret word 😏</p>
@@ -59,25 +61,29 @@
   <button onclick="checkPass()">Unlock 🔓</button>
 </div>
 
+<!-- 💘 MAIN CONTENT -->
 <div id="mainContent" class="box">
   <h1>So here’s the deal… 😌</h1>
-  
+
   <p style="font-size:20px;">
     Join me for a trip? ✈️<br><br>
     What can just 2 days away from your family<br>
     get you… with me? 😏❤️
   </p>
 
-  <button class="yes" onclick="yesClicked()">Yes 💕</button>
-  <button class="no" onclick="noClicked()">No 😢</button>
+  <button type="button" class="yes" onclick="yesClicked()">Yes 💕</button>
+  <button type="button" class="no" onmouseover="moveNo(this)">No 😢</button>
 
   <div id="response" style="margin-top:20px;"></div>
 </div>
 
 <script>
+
+  // 🔐 PASSWORD CHECK
   function checkPass() {
     var password = document.getElementById("pass").value;
-    if(password === "love") {  // 🔁 CHANGE THIS
+
+    if(password === "Shibu") {  // 👈 CHANGE PASSWORD HERE
       document.getElementById("lockScreen").style.display = "none";
       document.getElementById("mainContent").style.display = "block";
     } else {
@@ -85,19 +91,21 @@
     }
   }
 
+  // 💕 YES CLICK
   function yesClicked() {
     document.getElementById("response").innerHTML =
       "<h2>That’s my girl 😍</h2>\
        <p>Pack your bags… I’m stealing you for 2 days ❤️</p>\
-       <img src='https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif' width='250'>";
+       <img src='https://i.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif' width='250'>";
   }
 
-  function noClicked() {
-    document.getElementById("response").innerHTML =
-      "<h2>Oh come on 😭</h2>\
-       <p>I was already planning everything… now I have to miss you 💔</p>\
-       <img src='https://media.giphy.com/media/l3vR4CdLInXOhr3rO/giphy.gif' width='250'>";
+  // 😈 RUNAWAY NO BUTTON
+  function moveNo(btn) {
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * 300 + "px";
+    btn.style.left = Math.random() * 300 + "px";
   }
+
 </script>
 
 </body>
