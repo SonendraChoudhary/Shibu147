@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fecfef);
+      padding-top: 50px;
+      color: #333;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .no {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #mainContent {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="lockScreen" class="box">
+  <h2>Hey beautiful ❤️</h2>
+  <p>Enter our secret word 😏</p>
+  <input type="password" id="pass" placeholder="Hint: something only we know 😉">
+  <br><br>
+  <button onclick="checkPass()">Unlock 🔓</button>
+</div>
+
+<div id="mainContent" class="box">
+  <h1>So here’s the deal… 😌</h1>
+  
+  <p style="font-size:20px;">
+    Join me for a trip? ✈️<br><br>
+    What can just 2 days away from your family<br>
+    get you… with me? 😏❤️
+  </p>
+
+  <button class="yes" onclick="yesClicked()">Yes 💕</button>
+  <button class="no" onclick="noClicked()">No 😢</button>
+
+  <div id="response" style="margin-top:20px;"></div>
+</div>
+
+<script>
+  function checkPass() {
+    var password = document.getElementById("pass").value;
+    if(password === "love") {  // 🔁 CHANGE THIS
+      document.getElementById("lockScreen").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+    } else {
+      alert("Hmm… that’s not it 😜 Try again!");
+    }
+  }
+
+  function yesClicked() {
+    document.getElementById("response").innerHTML =
+      "<h2>That’s my girl 😍</h2>\
+       <p>Pack your bags… I’m stealing you for 2 days ❤️</p>\
+       <img src='https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif' width='250'>";
+  }
+
+  function noClicked() {
+    document.getElementById("response").innerHTML =
+      "<h2>Oh come on 😭</h2>\
+       <p>I was already planning everything… now I have to miss you 💔</p>\
+       <img src='https://media.giphy.com/media/l3vR4CdLInXOhr3rO/giphy.gif' width='250'>";
+  }
+</script>
+
+</body>
+</html>
